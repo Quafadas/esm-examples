@@ -18,18 +18,20 @@ site/
 ## Prerequisites
 
 - Java 11 or higher
-- Mill build tool
+- Mill build tool (bootstrap script included)
 
 ## Getting Started
 
-### Installing Mill
+### Using Mill
 
-Download Mill:
+The repository includes Mill's bootstrap script (`mill`) which will automatically download and use the version specified in `.mill-version` (1.0.6).
+
+Simply run:
 ```bash
-curl -L https://github.com/com-lihaoyi/mill/releases/download/0.11.6/0.11.6 > mill && chmod +x mill
+./mill site.compile
 ```
 
-Or use the version specified in `.mill-version` if you have a Mill launcher installed.
+The first time you run Mill, it will download the necessary binaries.
 
 ### Building
 
@@ -65,5 +67,6 @@ The `site` module is configured as a Scala.js module with:
 - Scala version: 3.3.1
 - Scala.js version: 1.15.0
 - Module kind: ESModule (to avoid bundling)
+- Mill version: 1.0.6 (specified in YAML frontmatter in build.mill)
 
 The ESModule output allows you to use native ES6 imports in the browser without bundling.
