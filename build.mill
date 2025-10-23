@@ -1,4 +1,4 @@
-//| mill-version: 1.0.5
+//| mill-version: 1.0.6
 //| mill-jvm-version: 21
 //| mvnDeps:
 //| - io.github.quafadas:millSite_mill1_3.7:0.0.53
@@ -15,5 +15,11 @@ import io.github.quafadas.millSite.*
 import mill.util.VcsVersion
 
 object site extends SiteModule:
+
+  override def scalaJSImportMap = Task{
+    Seq(
+      ESModuleImportMapping.Prefix("@stdlib/blas/base", "https://cdn.jsdelivr.net/npm/@stdlib/blas@0.2.0/base/+esm" )
+    )
+  }
   
 end site
