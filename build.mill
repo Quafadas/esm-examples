@@ -1,10 +1,13 @@
 //| mill-version: 1.0.6
 //| mill-jvm-version: 21
 //| mvnDeps:
-//| - io.github.quafadas:millSite_mill1_3.7:0.0.53
+//| - io.github.quafadas:millSite_mill1_3.7:0.0.54
 //| - com.goyeau::mill-scalafix::0.6.0
+//| - com.github.lolgab::mill-scalablytyped::0.4.0
 
+package build
 
+import com.github.lolgab.mill.scalablytyped.*
 import mill._
 import mill.scalalib._
 import mill.scalajslib._
@@ -16,10 +19,63 @@ import mill.util.VcsVersion
 
 object site extends SiteModule:
 
-  override def scalaJSImportMap = Task{
-    Seq(
-      ESModuleImportMapping.Prefix("@stdlib/blas/base", "https://cdn.jsdelivr.net/npm/@stdlib/blas@0.2.0/base/+esm" )
+  override lazy val jsSiteModule =  Some(jsExamples)
+
+  override def mdocSiteVariables = super.mdocSiteVariables() ++
+    Map(
+      "--js-html-header" -> """
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.core.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
+      """.stripMargin
     )
-  }
-  
+
+  // override def scalaJSImportMap = Task{
+  //   Seq(
+  //     ESModuleImportMapping.Prefix("@stdlib/blas/base", "https://cdn.jsdelivr.net/npm/@stdlib/blas@0.2.0/base/+esm" )
+  //   )
+  // }
+
 end site
+
+object jsExamples extends SiteJSModule:
+
+  def scalaVersion = "3.7.3"
+
+  def scalaJSVersion = "1.20.1"
+
+  def moduleKind = ModuleKind.ESModule
+
+  def mvnDeps = Task{
+    super.mvnDeps() ++
+      Seq(
+        mvn"org.scala-js::scalajs-dom::2.8.0",
+        mvn"com.raquo::laminar::17.2.0",
+        mvn"io.github.nguyenyou::webawesome-laminar::0.4.0"
+      )
+
+    }
+
+  def moduleDeps = Seq(
+    st
+  )
+
+  override def scalaJSImportMap = Seq(
+    ESModuleImportMapping.Prefix("quill/quill", "https://esm.run/quill@2.0.3/dist/quill.js"),
+    ESModuleImportMapping.Prefix("quill/core", "https://esm.run/quill@2.0.3/dist/quill.core.js"),
+    ESModuleImportMapping.Prefix("quill/themes/snow", "https://esm.run/quill@2.0.3/dist/quill.snow.js"),
+    ESModuleImportMapping.Prefix("turndown", "https://cdn.jsdelivr.net/npm/turndown@7.2.1/+esm"),
+    ESModuleImportMapping.Prefix("@awesome.me/webawesome/dist/", "https://early.webawesome.com/webawesome@3.0.0-beta.6/dist/")
+  )
+
+end jsExamples
+
+
+
+object st extends BaseJs with ScalablyTyped {
+
+}
+
+trait BaseJs extends ScalaJSModule {
+  def scalaVersion = "3.7.3"
+  def scalaJSVersion = "1.20.1"
+}

@@ -19,3 +19,5 @@ mill
 *-fastopt.js.map
 *-opt.js
 *-opt.js.map
+
+node_modules/

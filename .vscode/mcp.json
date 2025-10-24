@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "esm-examples-metals": {
+      "url": "http://localhost:64349/sse",
+      "type": "sse"
+    }
+  }
+}

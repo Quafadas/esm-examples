@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "typescript": "^5.9.3",
+    "quill": "^2.0.3"
+  }
+}

@@ -1,13 +1,14 @@
-# Test Documentation
+# ReadMe First
 
-This is a test markdown file for the site module.
+Aims;
+1. A personal library of solved facade problems for Scala.js + ES Modules + CDN usage.
+2. Explore testing frontend with playwright + AI generated tests.
+3. Explore scalablytyped vs AI vs handrolled facades
+4. Explore my own `millSite` module
 
 ## Overview
 
-The site module demonstrates a simple Scala.js application built with Mill.
+1. MS: [ms.md](ms.md) a simple facade for the `ms` npm package, imported directly from a CDN.
+2. Turndown - html to markdown converter [turndown.md](turndown.md) .
 
-## Structure
 
-- `src/` - Contains Scala source files
-- `resources/` - Contains resources like CSV files
-- `docs/` - Contains documentation files
