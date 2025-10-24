@@ -41,6 +41,19 @@ jobs:
         with:
           fetch-depth: 0
           fetch-tags: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/coursier
+            ~/.mill
+          key: ${{ runner.os }}-mill-${{ hashFiles('**/build.mill') }}
+          restore-keys: |
+            ${{ runner.os }}-mill-
+      - run: npm install
       - run: ./millw site.siteGen
       - name: Setup Pages
         uses: actions/configure-pages@main
