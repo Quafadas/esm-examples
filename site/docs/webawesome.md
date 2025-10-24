@@ -4,7 +4,8 @@
 
 # WebAwesome
 
-An excellent UI component framework.
+An [excellent UI component framework](https://webawesome.com) that someone has [kindly made facades for](https://github.com/nguyenyou/webawesome-laminar) and integrates with Laminar.
+
 
 ```scala mdoc:js
 
