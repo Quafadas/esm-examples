@@ -24,13 +24,3 @@ object ms extends js.Object {
 node.innerHTML = s"MS time : ${facades.ms("2 days")} , ms mills in S ${facades.ms(1000)}"
 node.asInstanceOf[org.scalajs.dom.HTMLElement].style.border = "3px solid green"
 ```
-
-### Notes:
-
-We can't have the facade directly in mdoc,
-
-```sh
-error: ms.md:12:1:
-@js.native is not allowed on local definitions
-```
-So instead we have it in a dependant module.

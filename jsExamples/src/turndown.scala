@@ -5,7 +5,7 @@ import scala.scalajs.js.annotation.JSImport
 
 // Manual facade for Turndown library
 @js.native
-@JSImport("turndown", JSImport.Default)
+@JSImport("@turndown", JSImport.Default)
 class TurndownService(options: js.UndefOr[TurndownOptions] = js.undefined) extends js.Object {
   def turndown(html: String): String = js.native
 }

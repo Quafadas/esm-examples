@@ -1,7 +1,10 @@
 # Turndown
 
-Markdown to HTML converter. Here, I handrolled the facade at `facades/TurndownService.scala`, and we remap the import at linktime.
+HTML to Markdown converter.
+- The facade is handrolled in `turndown.scala`
+- The import is remapped at linktime to `https://cdn.jsdelivr.net/npm/turndown@7.2.1/+esm`.
 
+The import remapping may be useful if you are hosting your own modules, or want to use a specific CDN.
 
 ```scala mdoc:js
 val turndownService = new facades.TurndownService()
