@@ -58,6 +58,7 @@ object jsExamples extends BaseJs with SiteJSModule:
   )
 
   override def scalaJSImportMap = Seq(
+    ESModuleImportMapping.Prefix("@idb-keyval", "https://esm.run/idb-keyval@6.2.2"),
     ESModuleImportMapping.Prefix("quill/quill", "https://esm.run/quill@2.0.3/dist/quill.js"),
     ESModuleImportMapping.Prefix("quill/core", "https://esm.run/quill@2.0.3/dist/quill.core.js"),
     ESModuleImportMapping.Prefix("quill/themes/snow", "https://esm.run/quill@2.0.3/dist/quill.snow.js"),
