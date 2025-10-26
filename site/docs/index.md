@@ -3,9 +3,13 @@
 Aims;
 
 1. A personal library of solved facade problems for Scala.js + ES Modules + CDN usage.
-2. Explore testing frontend with playwright + AI generated tests.
+2. Kick tyres of my sketchy `millSite` module for documentation generation with mdoc / mdoc JS.
 3. Explore scalablytyped vs AI vs handrolled facades
-4. Explore my own `millSite` module for documentation generation with mdoc / mdoc JS.
+
+Future:
+1. Explore testing frontend with playwright + AI generated tests.
+
+
 
 ## Overview
 
