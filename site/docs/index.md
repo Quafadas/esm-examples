@@ -17,5 +17,7 @@ Future:
 2. Turndown - html to markdown converter [turndown.md](turndown.md) .
 3. Quill - rich text editor [quill.md](quill.md) using ScalablyTyped facades.
 4. WebAwesome - UI component framework [webawesome.md](webawesome.md)
+5. idb-keyval - tiny key-val store facade [idbkeyval.md](idbkeyval.md)
+6. MSAL - Microsoft Authentication Library [msal.md](msal.md) sketchy facade for MSAL.js with a simple example.
 
 
