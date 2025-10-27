@@ -19,5 +19,6 @@ Future:
 4. WebAwesome - UI component framework [webawesome.md](webawesome.md)
 5. idb-keyval - tiny key-val store facade [idbkeyval.md](idbkeyval.md)
 6. MSAL - Microsoft Authentication Library [msal.md](msal.md) sketchy facade for MSAL.js with a simple example.
+7. Stdlib-js - numerical routines [js_stdlib.md](js_stdlib.md) facade for stdlib-js's BLAS routines.
 
 
