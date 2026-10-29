@@ -1,9 +1,9 @@
-//| mill-version: 1.0.6
+//| mill-version: 1.3.1
 //| mill-jvm-version: 21
 //| mvnDeps:
-//| - io.github.quafadas:millSite_mill1_3.7:0.0.54
+//| - io.github.quafadas:millSite_mill1_3.9:0.0.59
 //| - com.goyeau::mill-scalafix::0.6.0
-//| - com.github.lolgab::mill-scalablytyped::0.4.0
+//| - com.github.lolgab::mill-scalablytyped::0.4.1
 
 package build
 
@@ -21,7 +21,10 @@ object site extends SiteModule:
 
   override lazy val jsSiteModule =  Some(jsExamples)
 
-  override def repoLink = "https://github.com/Quafadas/esm-examples"
+  // millSite pins mdoc to Scala 3.7.x, which can't read 3.9 TASTy from jsExamples
+  override def scalaVersion = "3.9.0"
+
+  override def repoLink ="https://github.com/Quafadas/esm-examples"
 
   override def mdocSiteVariables = super.mdocSiteVariables() ++
     Map(
@@ -77,6 +80,6 @@ object st extends BaseJs with ScalablyTyped {
 }
 
 trait BaseJs extends ScalaJSModule {
-  def scalaVersion = "3.7.3"
-  def scalaJSVersion = "1.20.1"
+  def scalaVersion = "3.9.0"
+  def scalaJSVersion = "1.22.0"
 }
